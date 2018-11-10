@@ -8,7 +8,7 @@ React Native wrapper for functionality of https://developers.google.com/ml-kit/
 
 ## Compatibility
 
-As of the moment, this wrapper of firebase Ml Kit supports Android and iOS. 
+As of the moment, this wrapper of firebase Ml Kit supports Android and iOS.
 
 ## Mostly automatic installation
 
@@ -37,15 +37,15 @@ As of the moment, this wrapper of firebase Ml Kit supports Android and iOS.
 ```
 Error: MLVisionTextModel duplicate symbols with React Native
 
-    Solved enabling the dead code stripping in xcode for debug. 
-    You can enable it in Target > Build Settings > search for "Dead code stripping". 
+    Solved enabling the dead code stripping in xcode for debug.
+    You can enable it in Target > Build Settings > search for "Dead code stripping".
 
 ```
 
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNMlKitPackage;` to the imports at the top of the file
+  - Add `import com.mlkit.RNMlKitPackage;` to the imports at the top of the file
   - Add `new RNMlKitPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
@@ -103,7 +103,7 @@ export class textRecognition extends Component {
       const options = { quality: 0.5, base64: true, skipProcessing: true, forceUpOrientation: true };
       const data = await this.camera.takePictureAsync(options);
       // for on-device (Supports Android and iOS)
-      const deviceTextRecognition = await RNMlKit.deviceTextRecognition(data.uri); 
+      const deviceTextRecognition = await RNMlKit.deviceTextRecognition(data.uri);
       console.log('Text Recognition On-Device', deviceTextRecognition);
       // for cloud (At the moment supports only Android)
       const cloudTextRecognition = await RNMlKit.cloudTextRecognition(data.uri);
@@ -114,4 +114,3 @@ export class textRecognition extends Component {
   ...
 }
 ```
-  
